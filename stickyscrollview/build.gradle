@@ -1,37 +1,31 @@
-//申明是android程序
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
-    //编译SDK版本
     compileSdkVersion 25
-    //build tools 版本
-    buildToolsVersion '25.0.0'
+    buildToolsVersion "25.0.0"
+
     defaultConfig {
-        //包名
-        applicationId "ms.mike.com.mikeshar"
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {
-            //是否进行混淆代码
             minifyEnabled false
-            //混淆文件地址
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
-    compile project(':stickyscrollview')
 }
